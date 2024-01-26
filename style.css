@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html,body{
+  height: 100%;
+} */
+
+body{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  background: radial-gradient(134.34% 134.34% at 50% 0%, #1F3757 0%, #131537 100%);
+  min-height: 100vh;
+  text-transform: uppercase;
+}
+
+.container{
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  border-radius: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.29);
+  padding: 16px 20px 16px 32px;
+  margin-bottom:30px ;
+}
+
+.header h1{
+  color: #fff;
+  fill: #FFF;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.20));
+  line-height: 0.8;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 10px;
+  width: 150px;
+  height: 100%;
+}
+
+.score-title{
+  color: #2A45C2;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.score-number{
+  color: #565468;
+  text-align: center;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 64px; /* 100% */
+}
+
+
+.game {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 
+    'paper scissors'
+    'rock rock'; 
+  place-items: center;
+  height: 480px;
+}
+.game button{
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.game button:focus .game-paper::after,.game button:focus .game-scissors::after,.game button:focus .game-rock::after{
+  opacity: 1;
+  box-shadow: 0 0 0 2rem #223351;
+  z-index: -2;
+}
+.game-paper, .game-scissors, .game-rock{
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  background: #FFF;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0.5rem #00000026;
+}
+.game-paper img, .game-scissors img, .game-rock img{
+  transform: scale(1.5);
+}
+.game-paper::before, .game-scissors::before, .game-rock::before{
+  content: "";
+  position: absolute;
+  left: -15%;
+  top: -15%;
+  width: 130%;
+  height: 130%;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.game-paper::after, .game-scissors::after, .game-rock::after{
+  content: "";
+  position: absolute;
+  left: -15%;
+  top: -15%;
+  width: 130%;
+  height: 130%;
+  border-radius: 50%;
+  z-index: -1;
+}
+.game-paper::before{
+  background: linear-gradient(to bottom, #4664F4, #4664F4);
+  box-shadow: 0 0.5rem #00000026, 0 0.5rem #4664F4;
+}
+.game-scissors::before{
+  background: linear-gradient(to bottom, #EB9F0E, #EB9F0E);
+  box-shadow: 0 0.5rem #00000026, 0 0.5rem #EB9F0E;
+}
+.game-rock::before{
+  background: linear-gradient(to bottom, #DB2E4D, #DB2E4D);
+  box-shadow: 0 0.5rem #00000026, 0 0.5rem #DB2E4D;
+}
+.game-path{
+  position: absolute;
+  z-index: -1;
+}
+.game-btn-rock{
+  transform: translateX(110%);
+} 
+
+.rules-btn {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  background: none;
+  outline: none;
+  border: 2px solid hsl(217, 16%, 45%);
+  border-radius: 0.6rem;
+  color: #FFF;
+  padding: 0.6rem 2.5rem;
+  font-family: inherit;
+  text-transform: inherit;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.rules-btn:focus {
+  border: 2px solid #fff;
+}
+.rules-container{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.rules{
+  background: #FFF;
+  border-radius:8px;
+}
+.rules-header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 32px 32px 16px;
+}
+.rules-h2{
+  font-size: 24px;
+  color: hsl(229, 25%, 31%) ;
+}
+.close-btn{
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.rules-img{
+  padding: 2rem 4rem;
+}
+.result{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  grid-template-areas:
+    "you-title ai-title"
+    "you-picked ai-picked";
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.result-h3{
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  padding: 4rem 0 8rem;
+}
+.results-result{
+  min-width: 10rem;
+  min-height: 10rem;
+  background: #16213d;
+  border-radius: 50%;
+  transform: scale(1.4);
+  z-index: -1;
+}
+
+.result-h3:first-of-type{
+  grid-area: you-title;
+}
+.result-h3:last-of-type{
+  grid-area: ai-title;
+}
+.results-result:first-of-type {
+  grid-area: you-picked;
+}
+.results-result:last-of-type {
+  grid-area: ai-picked;
+}
+.preload * {
+    transition: none;
+}
+  
+.hidden {
+    display: none;
+}
+@keyframes winner {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+.show-modal {
+    opacity: 1;
+    pointer-events: initial;
+}
+
+/* Sadece mobil cihazlar için stil */
+/* @media only screen and (max-width: 767px) { */
+  /* Stil kuralları buraya */
+/* } */
+
+/* Sadece tablet cihazlar için stil */
+/* @media only screen and (min-width: 768px) and (max-width: 1024px) { */
+  /* Stil kuralları buraya */
+/* } */
+
+/* Sadece masaüstü cihazlar için stil */
+/* @media only screen and (min-width: 1025px) { */
+  /* Stil kuralları buraya */
+/* } */

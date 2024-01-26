@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taş-Kağıt-Makas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="preload">
+    <div class="container">
+        <div class='container-header-game'>
+            <header class="header">
+                <h1>ROCK<br />PAPER<br />SCISSORS</h1>
+                <div class="score">
+                    <p class="score-title">score</p>
+                    <p class="score-number">0</p>
+                </div>
+            </header>
+            
+            <section class="game">
+            <img class='game-path' src='./image/Path.svg' alt="path" />
+                <button class="game-btn">
+                    <div class="game-paper">
+                        <img src='./image/icon-paper.svg' alt="paper"/>
+                    </div>
+                </button>
+
+                <button class='game-btn'>
+                    <div class='game-scissors'>
+                        <img src='./image/icon-scissors.svg' alt="scissors"/>
+                    </div>
+                </button>
+
+                <button class='game-btn game-btn-rock'>
+                    <div class='game-rock'>
+                        <img src='./image/icon-rock.svg' alt="rock"/>
+                    </div>
+                </button>
+            </section>
+        </div>
+
+
+        <section class='result hidden' >
+            <h3 class='result-h3'>you picked</h3>
+            <h3 class='result-h3'>the house picked</h3>
+            <div class="results-result"></div>
+            <div class='result-win hidden'>
+                <h3 class='result-text'></h3>
+                <button class='play-again'>play again</button>
+            </div>
+            <div class="results-result"></div>
+        </section>
+        
+        <button class='rules-btn' tabindex="1">rules</button>
+        
+        <div class='rules-container'>
+            <div class='rules'>
+                <header class='rules-header'>
+                    <h2 class='rules-h2'>rules</h2>
+                    <button class='close-btn'>
+                        <img src='./image/icon-close.svg' alt="close-button" />
+                    </button>
+                </header>
+                <img src='./image/image-rules.svg' alt="rules-img" class='rules-img'/>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
