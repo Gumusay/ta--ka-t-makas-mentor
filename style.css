@@ -92,8 +92,8 @@ body{
 }
 .game-paper, .game-scissors, .game-rock{
   position: relative;
-  width: 10rem;
-  height: 10rem;
+  width: 9rem;
+  height: 9rem;
   background: #FFF;
   border-radius: 50%;
   display: grid;
@@ -147,7 +147,7 @@ body{
 .rules-btn {
   position: absolute;
   bottom: 32px;
-  right: 32px;
+  right: -210px;
   background: none;
   outline: none;
   border: 2px solid hsl(217, 16%, 45%);
@@ -201,22 +201,53 @@ body{
 }
 .result{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   place-items: center;
   grid-template-areas:
-    "you-title ai-title"
-    "you-picked ai-picked";
+    "you-title win ai-title"
+    "you-picked win ai-picked";
   max-width: 1000px;
   margin: 0 auto;
+  padding-bottom: 200px;
+
+}
+.result-win{
+  transform: translatey(200%);
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+}
+.play-again{
+  color: #3B4262;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  background: linear-gradient(0deg, #F3F3F3 0%, #FFF 100%);
+  padding: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.play-again:hover{
+  color: #DB2E4D;
+}
+
+.result-text {
+  color: #FFF;
+  text-align: center;
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.20);
+  font-size: 35px;
+  font-weight: 700;
 }
 .result-h3{
   font-size: 1.5rem;
   letter-spacing: 0.1em;
   padding: 4rem 0 8rem;
+  color: #FFF;
 }
 .results-result{
-  min-width: 10rem;
-  min-height: 10rem;
+  min-width: 9rem;
+  min-height: 9rem;
   background: #16213d;
   border-radius: 50%;
   transform: scale(1.4);

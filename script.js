@@ -94,14 +94,22 @@ function displayWinner(results) {
         keepScore(-1);
       } else {
         resultText.innerText = "draw";
+        keepScore(0);
       }
       resultWinner.classList.toggle("hidden");
       resultsDiv.classList.toggle("show-winner");
     }, 1000);
   }
 
-function isWinner(results) {
-    return results[0].beats === results[1].name;
+  function isWinner(results) {
+    const playerChoice = results[0].name;
+    const aiChoice = results[1].name;
+
+    if (playerChoice === aiChoice) {
+        return false;  // Berabere
+    }
+
+    return CHOICES.find(choice => choice.name === playerChoice).beats === aiChoice;
 }
   
 function keepScore(point) {
